@@ -83,8 +83,8 @@ const Navbar = () => {
         </>
     );
     return (
-        <div className="">
-            <div className="navbar flex justify-between px-1 md:px-3 py-4 max-w-screen-xl mx-auto">
+        <div className="bg-[#EADBC8] sticky top-0 left-0">
+            <div className="navbar flex justify-between px-1 md:px-3 py-2 max-w-screen-xl mx-auto">
                 <div className="navbar-start flex justify-between w-full lg:w-48">
                     <div className="dropdown">
                         <label tabIndex={0} className="lg:hidden">

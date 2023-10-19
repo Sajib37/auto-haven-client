@@ -11,8 +11,10 @@ const Register = () => {
 
     const handleGoogleLogin = () => {
         googleLogin()
-            .then(result => {
-            toast.success(`Welcome ${result?.user?.displayName}`)
+            .then(async result => {
+                toast.success(`Welcome ${result?.user?.displayName}. Login successfull`)
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+                navigate('/')
             })
         .catch(error=>toast.error('Login Failed!!'))
     }

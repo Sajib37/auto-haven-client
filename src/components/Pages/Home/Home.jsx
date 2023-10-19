@@ -1,7 +1,11 @@
+import Banner from "../../Shared/Banner/Banner";
+import Brands from "../../Shared/Brands/Brands";
+
 const Home = () => {
     return (
         <div>
-            <h1>This is Home</h1>
+            <Banner></Banner>
+            <Brands></Brands>
             
         </div>
     );
