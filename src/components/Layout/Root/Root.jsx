@@ -1,9 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../../Shared/Navber/Navbar';
+import Footer from '../../Shared/Footer/Footer';
 
 const Root = () => {
     return (
         <div>
-            <h1>bangladehs is motherland</h1>
+            <Navbar></Navbar>
+            <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };
