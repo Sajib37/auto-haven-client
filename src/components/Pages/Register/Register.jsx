@@ -1,12 +1,13 @@
 import React from 'react';
 import { BsGoogle } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
 
-    const { googleLogin ,createUser} = useAuth();
+    const { googleLogin, createUser } = useAuth();
+    const navigate = useNavigate();
 
     const handleGoogleLogin = () => {
         googleLogin()
@@ -17,7 +18,7 @@ const Register = () => {
     }
 
     // Create user with email and password
-    const handleCreateuser = (event) => {
+    const handleCreateuser =(event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -50,7 +51,11 @@ const Register = () => {
         }
         else {
             createUser(email, password)
-                .then(result => toast.success('Account created successfully'))
+                .then(async result => {
+                    toast.success('Account created successfully');
+                    await new Promise((resolve) => setTimeout(resolve, 1000));
+                    navigate('/login')
+                })
                 .catch(error => {
                     if (error == `FirebaseError: Firebase: Error (auth/email-already-in-use).`) {
                     toast.error("Your Email already in use.")
