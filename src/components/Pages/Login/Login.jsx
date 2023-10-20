@@ -1,5 +1,5 @@
 import { BsGoogle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,12 +7,17 @@ import { useRef } from "react";
 
 const Login = () => {
     const {googleLogin,emailLogin ,resetPassword}=useAuth()
-    const emailRef=useRef()
+    const emailRef = useRef()
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location)
     // google Login
     const handleGoogleLogin = () => {
         googleLogin()
-            .then(result => {
+            .then(async result => {
                 toast.success(`Welcome ${result?.user?.displayName}`)
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => toast.error('Opps! Login Failed.'))        
     }
@@ -25,8 +30,10 @@ const Login = () => {
         const password = form.password.value;
 
         emailLogin(email,password)
-            .then(result => {
+            .then(async result => {
                 toast.success('Login Successfully !!!')
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+                navigate(location?.state ? location.state : '/');
                 
             })
             .catch(error => {
@@ -47,12 +54,11 @@ const Login = () => {
                 })
                 .catch(error => console.log(error));
         }
-    }
-    
+    }    
 
     return (
         <section className="max-w-md my-8 md:my-12 mx-auto px-1 md:max-w-lg lg:max-w-lg">
-            <section className="border-2 rounded-lg px-4 py-8 md:py-12 ">
+            <section className="border-2 bg-[#f8f0e5b3] rounded-lg px-4 py-8 md:py-12 ">
                 <h1 className="text-2xl md:text-4xl mb-4 text-center font-ubuntu font-semibold">Login to your account</h1>
 
                 <form onSubmit={handleEmailLogin}>

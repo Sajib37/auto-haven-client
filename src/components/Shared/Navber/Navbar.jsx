@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "/logo.png";
+import user1 from "/invalidUser.png"
 import { MdMenu } from "react-icons/md";
 import { useAuth } from "../../../AuthProvider/AuthProvider";
 import { useEffect, useState } from "react";
@@ -11,11 +12,18 @@ const Navbar = () => {
     const [photo, setPhoto] = useState(null);
     const [userName, setUserName] = useState(null);
     const navigate = useNavigate();
+    console.log(user)
 
     useEffect(() => {
         if (user !== null) {
             setUserName(user.displayName);
-            setPhoto(user.photoURL);
+            if (user.photoURL) {
+                setPhoto(user.photoURL);
+            }
+            else {
+                setPhoto(user1)
+            }
+            
         }
     }, [user]);
 
@@ -67,7 +75,7 @@ const Navbar = () => {
 
             {/* Login and Logout toggle here */}
             {user ? (
-                <button onClick={handleLogOut} className="p-2 rounded-lg px-3  border-black active:bg-black active:text-white">Log out</button>
+                <li><button onClick={handleLogOut} className="p-2 rounded-lg px-3  border-black active:bg-black active:text-white">Log out</button></li>
             ) : (
                 <li>
                     <NavLink
@@ -83,7 +91,7 @@ const Navbar = () => {
         </>
     );
     return (
-        <div className="bg-[#EADBC8] sticky top-0 left-0">
+        <div className="bg-[#EADBC8] z-30 sticky top-0 left-0">
             <div className="navbar flex justify-between px-1 md:px-3 py-2 max-w-screen-xl mx-auto">
                 <div className="navbar-start flex justify-between w-full lg:w-48">
                     <div className="dropdown">
@@ -117,7 +125,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 font-ubuntu font-medium">
+                    <ul className="menu menu-horizontal px-1 font-ubuntu font-medium gap-2">
                         {navList}
                     </ul>
                 </div>

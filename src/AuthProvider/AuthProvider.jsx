@@ -16,26 +16,31 @@ const AuthProvider = ({ children }) => {
     // Login with Google
     const googleProvider = new GoogleAuthProvider();
     const googleLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider);
     }
 
     // Create User with email and password
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     // Login with email and password
-    const emailLogin = (email,password) => {
+    const emailLogin = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
 
     // Log Out method
     const logOut = () => {
+        setLoading(true)
         return signOut(auth);
     }
 
     // Forgot password
     const resetPassword = (email) => {
+        setLoading(true)
         return sendPasswordResetEmail(auth,email)
     }
 

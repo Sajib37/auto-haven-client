@@ -70,8 +70,8 @@ const Register = () => {
     }
 
     return (
-        <section className=" my-8 md:my-12 mx-auto px-1 max-w-sm md:max-w-lg lg:max-w-lg">
-            <section className="border-2 rounded-lg px-4 py-8 md:py-12 ">
+        <section className=" my-8 md:my-12 mx-auto px-1 max-w-sm md:max-w-lg">
+            <section className="border-2 bg-[#f8f0e5b3] rounded-lg px-4 py-8 md:py-12 ">
                 <h1 className="text-2xl md:text-4xl mb-4 text-center font-ubuntu font-semibold">Create  a new account</h1>
 
                 <form onSubmit={handleCreateuser}>
