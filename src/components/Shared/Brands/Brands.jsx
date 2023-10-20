@@ -4,6 +4,7 @@ import nisaan from '/logos/nisaan.png'
 import mercedes from '/logos/mercedes.png'
 import hyundai from '/logos/hyundai.png'
 import audi from '/logos/audi.png'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -11,6 +12,13 @@ import audi from '/logos/audi.png'
 
 
 const Brands = () => {
+
+    const navigate = useNavigate();
+    const handleShowProducts = (brand) => {
+        navigate(`/products/${brand}`)
+    }
+
+
     return (
         <div className="max-w-screen-xl mx-auto mb-10 lg:mb-20 mt-4">
             <h1 className="text-center text-3xl md:text-4xl lg:text-5xl my-10 lg:my-16 font-lobstar font-bold">
@@ -21,7 +29,7 @@ const Brands = () => {
             <div className=' grid grid-cols-2 px-2 md:px-4 lg:px-20 md:grid-cols-3 gap-2 '>
                 
                 {/* BMW */}
-                <div className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('bmw')} className="card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={bmw}
@@ -35,7 +43,7 @@ const Brands = () => {
                 </div>
                 
                 {/* toyota */}
-                <div className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('toyota')} className="card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={toyota}
@@ -49,7 +57,7 @@ const Brands = () => {
                 </div>
                 
                 {/* hyundai */}
-                <div className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('hyundai')} className="card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={hyundai}
@@ -63,7 +71,7 @@ const Brands = () => {
                 </div>
                 
                 {/* audi */}
-                <div className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('audi')} className="card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={audi}
@@ -77,7 +85,7 @@ const Brands = () => {
                 </div>
                 
                 {/* mercedes */}
-                <div className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('mercedes')} className="card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={mercedes}
@@ -91,7 +99,7 @@ const Brands = () => {
                 </div>
                 
                 {/* nisaan */}
-                <div className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('nisaan')} className="card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={nisaan}

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { json } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddProduct = () => {
 
@@ -16,7 +18,25 @@ const AddProduct = () => {
         const product = {
             brand, model, photo, type, rating, price, description
         }
-        console.log(product)
+
+        // Send the product to the server
+        fetch('http://localhost:5000/products', {
+            method: "POST",
+            headers: {
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success("New car added successfully.!!")
+                    form.reset();
+                }
+                else {
+                    toString.error("New car added Failed.!")
+                }
+        })
 
     }
     return (
@@ -56,6 +76,7 @@ const AddProduct = () => {
                     <button name="submit" className="btn btn-active btn-neutral w-32 block mx-auto">Add</button>
                 </form>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

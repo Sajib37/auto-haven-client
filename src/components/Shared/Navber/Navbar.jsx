@@ -91,7 +91,7 @@ const Navbar = () => {
         </>
     );
     return (
-        <div className="bg-[#EADBC8] z-30 sticky top-0 left-0">
+        <div className="bg-[#EADBC8] z-30 sticky top-0 left-0 opacity-90">
             <div className="navbar flex justify-between px-1 md:px-3 py-2 max-w-screen-xl mx-auto">
                 <div className="navbar-start flex justify-between w-full lg:w-48">
                     <div className="dropdown">
