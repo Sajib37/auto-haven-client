@@ -14,6 +14,7 @@ const MyCart = () => {
             .then((data) => setCarts(data));
     }, []);
 
+
     const handleCartDelet = (_id) => {
         Swal.fire({
             title: "Are you sure ?",
@@ -32,6 +33,7 @@ const MyCart = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
+                            setCarts(carts.filter(cart => cart._id !== _id));
                             Swal.fire("Deleted!", "Your cart has been deleted.", "success");
                     }
                 })
