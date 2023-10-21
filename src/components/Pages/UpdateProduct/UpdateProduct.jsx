@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const UpdateProduct = () => {
 
@@ -15,13 +15,30 @@ const UpdateProduct = () => {
         const type = form.type.value;
         const rating = form.rating.value;
         const price = form.price.value;
-        const description = form.description.value;
 
         const updatedProduct = {
-            brand, model, photo, type, rating, price, description
+            brand, model, photo, type, rating, price
         }
 
-        console.log(updatedProduct)
+        fetch(`http://localhost:5000/updated/${_id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Information updated successfully!')
+                }
+                else {
+                    toast.error('Update Failed.!')
+                }
+            })
+        
+
+        
     }
     
     return (
@@ -56,8 +73,6 @@ const UpdateProduct = () => {
                             <input defaultValue={price} name="price" type="text" placeholder="Enter the Price" className="input input-bordered w-full mb-4" required />
                         </div>
                     </div>
-                    <label  className="lg:text-lg font-ubuntu">Short description:</label>
-                    <textarea defaultValue={description} name="description" className="textarea textarea-bordered w-full mb-4" placeholder="Enter short description here."></textarea>
                     <button name="submit" className="btn btn-active btn-neutral w-32 block mx-auto">Update</button>
                 </form>
             </div>

@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Product from "../../Shared/Product/Product";
 import Carosol from "../../Shared/Carosol/Carosol";
+import Swal from "sweetalert2";
 
 const ShowProduct = () => {
     const products = useLoaderData();
+
+    if (products.length == 0) {
+        Swal.fire('Opps! There is no products of this brand');
+    }
+
     const [productsLength, setProductsLength] = useState(4);
     const handlShowAll = () => {
         const dl = products.length;
