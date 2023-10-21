@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { AiTwotoneDelete } from "react-icons/ai";
 
-const SingleCart = ({ cart }) => {
-    const { id } = cart;
+const SingleCart = ({ cart ,handleCartDelet}) => {
+    const { id ,_id} = cart;
     const [cartProduct, setCartProduct] = useState([]);
 
     useEffect(() => {
@@ -15,6 +15,7 @@ const SingleCart = ({ cart }) => {
                 }, 1000);
             });
     }, []);
+
 
     if (cartProduct.length > 0) {
         const { brand, model, photo, type, rating, price, description } =
@@ -33,7 +34,7 @@ const SingleCart = ({ cart }) => {
                     <h1 className="font-medium">Model: {model}</h1>
                     <p className="font-medium text-orange-400">Price: { price} $</p>
                 </div>
-                <AiTwotoneDelete className="absolute top-2 right-2 text-2xl text-red-500 cursor-pointer"></AiTwotoneDelete>
+                <AiTwotoneDelete onClick={()=>handleCartDelet(_id)} className="absolute top-2 right-2 text-lg md:text-2xl text-red-500 cursor-pointer"></AiTwotoneDelete>
             </div>
         );
     } else {
