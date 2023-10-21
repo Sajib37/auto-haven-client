@@ -7,13 +7,13 @@ const ChoosenUs = () => {
             <h1 className="text-center text-3xl md:text-4xl my-10 lg:my-16 font-lobstar font-bold">
                 Why Choose Auto Haven?
             </h1>
-            <div className="flex flex-col lg:flex-row gap-4 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-center">
                 <div className="flex-1 text-center lg:text-left">
                     <h1 className=" text-3xl md:text-4xl font-bold ">
                         Auto Haven Advantages: <br /> <span className="text-orange-400">Your Road to Exceptional Car
                         Buying</span>
                     </h1>
-                    <p className="pt-4 text-gray-400 font-medium">
+                    <p className="pt-4 text-gray-400 font-medium text-justify">
                         Discover a world of benefits and excellence at Auto
                         Haven. We pride ourselves on providing a seamless
                         car-buying experience with a wide selection of vehicles,
@@ -31,7 +31,7 @@ const ChoosenUs = () => {
                             <h1 className="text-xl font-bold">
                                 Exceptional Customer Service
                             </h1>
-                            <p className="font font-medium text-gray-400">
+                            <p className="font font-medium text-gray-400 text-justify">
                                 Our dedicated team is committed to providing
                                 exceptional customer service. We're here to
                                 assist you at every step of the car-buying
@@ -45,7 +45,7 @@ const ChoosenUs = () => {
                             <h1 className="text-xl font-bold">
                                 Wide Selection
                             </h1>
-                            <p className="font font-medium text-gray-400">
+                            <p className="font font-medium text-gray-400 text-justify">
                                 Discover a vast range of cars from different
                                 brands, models, and categories. Whether you're
                                 looking for a family car, a sports car, or an
@@ -60,7 +60,7 @@ const ChoosenUs = () => {
                             <h1 className="text-xl font-bold">
                                 Competitive Pricing
                             </h1>
-                            <p className="font font-medium text-gray-400">
+                            <p className="font font-medium text-gray-400 text-justify">
                                 We offer competitive prices to ensure that you
                                 get the best value for your money. Our
                                 transparent pricing and financing options make

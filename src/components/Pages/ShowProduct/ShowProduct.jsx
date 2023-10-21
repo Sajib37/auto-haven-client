@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Product from "../../Shared/Product/Product";
 import Carosol from "../../Shared/Carosol/Carosol";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ShowProduct = () => {
     const products = useLoaderData();
@@ -19,6 +20,9 @@ const ShowProduct = () => {
     return (
         <div className="">
             <Carosol></Carosol>
+            <Helmet>
+                <title>Auto Haven || Show Product</title>
+            </Helmet>
             <div className="py-10 md:py-16 px-1">
                 <h1 className="text-center text-3xl md:text-5xl font-semibold font-serif">
                     Explore {products[0].brand} collection <br />{" "}

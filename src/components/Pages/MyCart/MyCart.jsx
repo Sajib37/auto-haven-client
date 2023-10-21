@@ -3,17 +3,17 @@ import { useAuth } from "../../../AuthProvider/AuthProvider";
 import { useEffect } from "react";
 import SingleCart from "../../Shared/SingleCart/SingleCart";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyCart = () => {
     const [carts, setCarts] = useState([]);
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/carts/${user.email}`)
+        fetch(`https://auto-haven-server.vercel.app/carts/${user.email}`)
             .then((res) => res.json())
             .then((data) => setCarts(data));
     }, []);
-
 
     const handleCartDelet = (_id) => {
         Swal.fire({
@@ -27,23 +27,31 @@ const MyCart = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Swal.fire("Deleted!", "Your cart has been deleted.", "success");
-                fetch(`http://localhost:5000/cart/${_id}`, {
-                    method:"DELETE"
+                fetch(`https://auto-haven-server.vercel.app/cart/${_id}`, {
+                    method: "DELETE",
                 })
-                    .then(res => res.json())
-                    .then(data => {
+                    .then((res) => res.json())
+                    .then((data) => {
                         if (data.deletedCount > 0) {
-                            setCarts(carts.filter(cart => cart._id !== _id));
-                            Swal.fire("Deleted!", "Your cart has been deleted.", "success");
-                    }
-                })
-
+                            setCarts(carts.filter((cart) => cart._id !== _id));
+                            Swal.fire(
+                                "Deleted!",
+                                "Your cart has been deleted.",
+                                "success"
+                            );
+                        }
+                    });
             }
         });
     };
 
     return (
         <div className="max-w-screen-xl mx-auto px-1 my-10 md:my-16">
+            <Helmet>
+                <title>
+                    Auto Haven || My cart
+                </title>
+            </Helmet>
             <h1 className="text-center text-3xl md:text-4xl  font-ubuntu font-semibold mb-4">
                 Your order list here:{" "}
             </h1>

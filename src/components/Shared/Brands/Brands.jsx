@@ -29,7 +29,7 @@ const Brands = () => {
             <div className=' grid grid-cols-2 px-2 md:px-4 lg:px-20 md:grid-cols-3 gap-2 '>
                 
                 {/* BMW */}
-                <div onClick={()=>handleShowProducts('bmw')} className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('bmw')} className=" cursor-pointer card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={bmw}
@@ -43,7 +43,7 @@ const Brands = () => {
                 </div>
                 
                 {/* toyota */}
-                <div onClick={()=>handleShowProducts('toyota')} className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('toyota')} className=" cursor-pointer card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={toyota}
@@ -57,7 +57,7 @@ const Brands = () => {
                 </div>
                 
                 {/* hyundai */}
-                <div onClick={()=>handleShowProducts('hyundai')} className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('hyundai')} className=" cursor-pointer card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={hyundai}
@@ -71,7 +71,7 @@ const Brands = () => {
                 </div>
                 
                 {/* audi */}
-                <div onClick={()=>handleShowProducts('audi')} className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('audi')} className="cursor-pointer card bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={audi}
@@ -85,7 +85,7 @@ const Brands = () => {
                 </div>
                 
                 {/* mercedes */}
-                <div onClick={()=>handleShowProducts('mercedes')} className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('mercedes')} className="card cursor-pointer bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={mercedes}
@@ -99,7 +99,7 @@ const Brands = () => {
                 </div>
                 
                 {/* nisaan */}
-                <div onClick={()=>handleShowProducts('nisaan')} className="card bg-base-200 mx-auto rounded-md w-full ">
+                <div onClick={()=>handleShowProducts('nisaan')} className="card cursor-pointer bg-base-200 mx-auto rounded-md w-full ">
                     <figure className="px-8 pt-8">
                         <img
                             src={nisaan}

@@ -1,7 +1,11 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 const ErrorPage = () => {
     return (
         <div className="w-full h-[100vh] bg-error-bg bg-cover flex items-center justify-center">
+            <Helmet>
+                <title>auto haven || ErrorPage</title>
+            </Helmet>
             <div>
                 <h1 className="text-red-700 font-bold md:text-7xl text-5xl text-center">
                     Opps! <br/> <span className="text-orange-400 md:text-5xl text-3xl">Page not Found</span>

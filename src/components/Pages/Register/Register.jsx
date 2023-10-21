@@ -3,6 +3,7 @@ import { BsGoogle } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
 
@@ -71,6 +72,9 @@ const Register = () => {
 
     return (
         <section className=" my-8 md:my-12 mx-auto px-1 max-w-sm md:max-w-lg">
+            <Helmet>
+                <title>Auto Haven || Register</title>
+            </Helmet>
             <section className="border-2 bg-[#f8f0e5b3] rounded-lg px-4 py-8 md:py-12 ">
                 <h1 className="text-2xl md:text-4xl mb-4 text-center font-ubuntu font-semibold">Create  a new account</h1>
 
