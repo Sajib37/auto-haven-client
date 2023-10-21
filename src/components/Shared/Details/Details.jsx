@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { useAuth } from "../../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Details = () => {
 
@@ -20,7 +21,14 @@ const Details = () => {
             body:JSON.stringify(cart)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success(`Successfully added to your cart.!`)
+                }
+                else {
+                    toast.error('add to the cart failed .!')
+                }
+            })
         
     }
     
@@ -42,6 +50,7 @@ const Details = () => {
                 </ul>
                 <button onClick={handleCart} className="py-2 px-6 rounded-lg bg-[#0F2C59] text-white border-2 mt-4"> Add to cart</button>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
