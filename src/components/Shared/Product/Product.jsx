@@ -10,6 +10,10 @@ const Product = ({ product }) => {
         // console.log(id)
     }
     
+    const handleUpdate = (_id) => {
+        console.log(_id)
+        navigate(`/update/${_id}`)
+    }
     return (
         <div className="flex flex-col md:flex-row border-2 border-[#DAC0A3] rounded-xl gap-4">
             <div className="w-72 md:w-80 md:h-52 h-44 mx-auto md:mx-0 p-2">
@@ -25,7 +29,7 @@ const Product = ({ product }) => {
                 </div>
                 <div className="flex gap-2 my-2">
                     <button onClick={()=>handleDetails(_id)} className="py-2 px-6 rounded-lg bg-[#0F2C59] text-white border-2">Details</button>
-                    <button className="py-2 px-6 rounded-lg bg-[#0F2C59] text-white border-2">Update</button>
+                    <button onClick={()=>handleUpdate(_id)} className="py-2 px-6 rounded-lg bg-[#0F2C59] text-white border-2">Update</button>
                 </div>
             </div>
         </div>
