@@ -31,10 +31,10 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(async result => {
-                toast.success('Log Out Successfully')
+                // toast.success('Log Out Successfully')
                 setPhoto(null);
                 setUserName(null);
-                await new Promise((resolve) => setTimeout(resolve, 1000));
+                // await new Promise((resolve) => setTimeout(resolve, 1000));
                 navigate('/')
             })
         .catch(error=>toast.error('Log out Failed !!'))

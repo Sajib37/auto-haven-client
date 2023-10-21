@@ -1,6 +1,14 @@
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
-    const { brand, model, photo, type, rating, price, description } = product;
+    const { _id, brand, model, photo, type, rating, price, description } = product;
+    
+    const navigate = useNavigate();
+
+    const handleDetails = (id) => {
+        navigate(`/details/${id}`)
+        // console.log(id)
+    }
     
     return (
         <div className="flex flex-col md:flex-row border-2 border-[#DAC0A3] rounded-xl gap-4">
@@ -11,12 +19,12 @@ const Product = ({ product }) => {
                 <h1 className="font-serif font-semibold text-lg">Brand: {brand}</h1>
                 <h1 className="font-ubuntu font-medium">Model: {model}</h1>
                 <p className="text-gray-500 font-ubuntu">Type: {type}</p>
-                <div className="flex justify-between font-ubuntu text-gray-500">
+                <div className="flex gap-6 font-ubuntu text-gray-500">
                     <p>Rating: {rating}</p>
                     <p className="text-red-400">Price: {price}$</p>
                 </div>
                 <div className="flex gap-2 my-2">
-                    <button className="py-2 px-6 rounded-lg bg-[#0F2C59] text-white border-2">Details</button>
+                    <button onClick={()=>handleDetails(_id)} className="py-2 px-6 rounded-lg bg-[#0F2C59] text-white border-2">Details</button>
                     <button className="py-2 px-6 rounded-lg bg-[#0F2C59] text-white border-2">Update</button>
                 </div>
             </div>
