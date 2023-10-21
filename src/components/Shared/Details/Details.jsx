@@ -27,7 +27,7 @@ const Details = () => {
     return (
         <div className="max-w-screen-xl mx-auto my-12">
             <div>
-                <img src={photo} alt="" />
+                <img className=" mx-auto" src={photo} alt="" />
             </div>
 
             <div className="flex flex-col items-center px-2">
